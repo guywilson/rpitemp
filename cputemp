@@ -1,0 +1,9 @@
+#!/bin/bash
+
+temp=$(</sys/class/thermal/thermal_zone0/temp)
+
+int_temp=${temp:0:2}
+dec_temp=${temp:2:3}
+deg=$'\xc2\xb0'
+
+echo "${int_temp}.${dec_temp}${deg}C"
