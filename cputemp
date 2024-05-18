@@ -1,9 +1,8 @@
 #!/bin/bash
 
-temp=$(</sys/class/thermal/thermal_zone0/temp)
+temp_str=$(vcgencmd measure_temp)
+temp=${temp_str:5:4}
 
-int_temp=${temp:0:2}
-dec_temp=${temp:2:3}
 deg=$'\xc2\xb0'
 
-echo "${int_temp}.${dec_temp}${deg}C"
+echo "${temp}${deg}C"
