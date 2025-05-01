@@ -5,4 +5,6 @@ temp=${temp_str:5:4}
 
 deg=$'\xc2\xb0'
 
-echo "${temp}${deg}C"
+fanspeed=$(cat /sys/devices/platform/cooling_fan/hwmon/*/fan1_input)
+
+echo "${temp}${deg}C    ${fanspeed}rpm"
